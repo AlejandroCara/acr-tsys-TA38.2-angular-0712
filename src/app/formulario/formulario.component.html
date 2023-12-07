@@ -1,0 +1,24 @@
+<h1>Alta cliente</h1>
+<div>
+    <div>
+        <p>Nombre</p>
+        <input #formName type="text" name="nombre" id="nombre" placeholder="Nombre y apellido"><br>
+    </div>
+    <div>
+        <p>Email</p>
+        <input #formEmail type="text" name="cif" id="cif" placeholder="ejemplo@dominio.com"><br>
+    </div>
+    <div>
+        <p>Mensaje</p>
+        <textarea #formMensaje name="" id="" cols="30" rows="10">
+
+        </textarea><br>
+    </div>
+    <div>
+        <p>2 + 3 = ?</p>
+        <input #formRespuesta type="text" name="cif" id="cif" placeholder="Respuesta"><br>
+    </div>
+    <div>   
+        <button (click)="clickGuardar()">Guardar</button>
+    </div>
+</div>
