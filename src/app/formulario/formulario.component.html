@@ -1,24 +1,36 @@
 <h1>Alta cliente</h1>
-<div>
-    <div>
-        <p>Nombre</p>
-        <input #formName type="text" name="nombre" id="nombre" placeholder="Nombre y apellido"><br>
+<div class="container-flex main">
+    <div class="row">
+        <p class="col-md-1 col-3 label">Nombre</p>
+        <div class="col-md-3  col-7">
+            <input #formName type="text" name="nombre" id="nombre" placeholder="Nombre y apellido" class="form-control" >
+        </div>
+        <p class="offset-md-1 offset-3 err" #nameErr hidden>Introduzca su nombre y apellido</p>
     </div>
-    <div>
-        <p>Email</p>
-        <input #formEmail type="text" name="cif" id="cif" placeholder="ejemplo@dominio.com"><br>
+    <div class="row">
+        <p class="col-md-1 col-3 label">Email</p>
+        <div class="col-md-3  col-7">
+            <input #formEmail type="text" name="cif" id="cif" placeholder="ejemplo@dominio.com" class="form-control">
+        </div>
+        <p class="offset-md-1 offset-3 err" #mailErr hidden>Introduzca un email valido</p>
     </div>
-    <div>
-        <p>Mensaje</p>
-        <textarea #formMensaje name="" id="" cols="30" rows="10">
+    <div class="row">
+        <p class="col-md-1 col-3 align-self-start label">Mensaje</p>
+        <div class="col-md-3  col-7">
+            <textarea #formMensaje name="" id="" cols="30" rows="5" value="" class="form-control">
 
-        </textarea><br>
+            </textarea>
+        </div>
+        <p class="offset-md-1 offset-3 err" #msgErr hidden>Introduzca un mensaje</p>
     </div>
-    <div>
-        <p>2 + 3 = ?</p>
-        <input #formRespuesta type="text" name="cif" id="cif" placeholder="Respuesta"><br>
+    <div class="row">
+        <p class="col-md-1 col-3 label">2 + 3 = ?</p>
+        <div class="col-md-3  col-7">
+            <input #formRespuesta type="text" name="cif" id="cif" placeholder="Respuesta" class="form-control">
+        </div>
+        <p class="offset-md-1 offset-3 err" #spamErr hidden>Validacion anti-spam incorrecta</p>
     </div>
-    <div>   
-        <button (click)="clickGuardar()">Guardar</button>
+    <div class="row-flex justify-content-center">   
+        <button (click)="clickGuardar()" class="btn btn-primary">Guardar</button>
     </div>
 </div>

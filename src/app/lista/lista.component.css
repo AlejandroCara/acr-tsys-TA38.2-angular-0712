@@ -1,0 +1,15 @@
+p {
+    display: inline-block;
+    width: 110px;
+    font-weight: bold;
+}
+
+.li {
+    padding: 7px;
+    border-bottom: 1px solid rgb(172, 172, 172);
+    width: 500px;
+}
+
+#list_container {
+    margin-top: 40px;
+}

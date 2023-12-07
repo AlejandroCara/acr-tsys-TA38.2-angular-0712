@@ -21,10 +21,24 @@ export class FormularioComponent implements OnInit{
   @ViewChild("formRespuesta")
   formRespuesta!: ElementRef;
 
+
+  @ViewChild("nameErr")
+  nameErr!: ElementRef;
+
+  @ViewChild("mailErr")
+  mailErr!: ElementRef;
+
+  @ViewChild("msgErr")
+  msgErr!: ElementRef;
+
+  @ViewChild("spamErr")
+  spamErr!: ElementRef;
+
+  emailRegex = new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+
   @Output() onGuardar: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   constructor() {
-    
   }
  
   ngOnInit() {
@@ -43,12 +57,41 @@ export class FormularioComponent implements OnInit{
       if(formData[i].trim() == ""){
         valid = false;
       }
-      
     }
 
     console.log(formData);
-    if (valid) {
+    if (valid && this.formRespuesta.nativeElement.value == "5") {
       this.onGuardar.emit(formData);
+      this.shorErr();
+    } else {
+      this.shorErr();
+    }
+  }
+
+  shorErr = (): void => {
+    console.log(this.formEmail.nativeElement.hidden)
+    if (this.formName.nativeElement.value.trim() == "") {
+      this.nameErr.nativeElement.removeAttribute("hidden");
+    } else {
+      this.nameErr.nativeElement.hidden = true;
+    }
+    
+    if (this.formEmail.nativeElement.value.trim() == "" || !this.emailRegex.test(this.formEmail.nativeElement.value.trim())) {
+      this.mailErr.nativeElement.removeAttribute("hidden");
+    } else {
+      this.mailErr.nativeElement.hidden = true;
+    }
+    
+    if (this.formMensaje.nativeElement.value.trim() == "") {
+      this.msgErr.nativeElement.removeAttribute("hidden");
+    } else {
+      this.msgErr.nativeElement.hidden = true;
+    }
+    
+    if (this.formRespuesta.nativeElement.value.trim() == "" || this.formRespuesta.nativeElement.value.trim() != "5") {
+      this.spamErr.nativeElement.removeAttribute("hidden");
+    } else {
+      this.spamErr.nativeElement.hidden = true;
     }
   }
 }
